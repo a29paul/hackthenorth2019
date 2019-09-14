@@ -4,11 +4,7 @@ const config = {
     headers: {
       'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
       'x-rapidapi-key': '6173e36138msh426bdce533ea798p1cbaafjsn148e9b084d52',
-    },
-    auth: {
-      username: 'janedoe',
-      password: 's00pers3cret'
-    },
+    }
   }
 
 module.exports = {
