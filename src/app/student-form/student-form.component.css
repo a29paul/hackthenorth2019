@@ -10,3 +10,24 @@
   width: 10vw;
   margin: 0 auto;
 }
+
+.custom-control-label{
+  color: black;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size: large;
+}
+
+.form-inline{
+  margin-left: 30vw;
+  color: black;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size: 100;
+}
+
+.scrollable-menu{
+  max-height: 75px;
+  overflow-x: hidden;
+  text-align: center;
+}
