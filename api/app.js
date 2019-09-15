@@ -22,7 +22,7 @@ app.post('/flightPrices', async (req,res) => {
     const university = req.body.university
     const dateOfDeparture = req.body.dateOfDeparture
     const dateOfReturn = req.body.dateOfReturn
-    
+
     const flightPriceCAD = await FlightPriceService.getFlightPrices(originAirport, university, dateOfDeparture, dateOfReturn)
     const data = {
         price: flightPriceCAD,
@@ -41,13 +41,6 @@ app.post('/moneyConvert', async (req,res) => {
     res.send(jsonify)
 })
 
-<<<<<<< HEAD
-const express = require('express');
-const app = express();
-
-
-
-=======
 app.post('/newsFeed', async (req,res) => {
     const university = req.body.university;
     const news = await AzureService.newsInfo(university)
@@ -70,17 +63,8 @@ app.post('/optimize', async (req,res) => {
     const jsonify = JSON.stringify(data)
     res.send(jsonify)
 })
->>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021
 
 
 app.listen(3000)
 
 
-<<<<<<< HEAD
-const FlightPriceService = require('./FlightPriceService');
-const CurrencyConverterService = require('./CurrencyConverterService');
-const AzureService = require('./AzureService');
-
-
-=======
->>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021
