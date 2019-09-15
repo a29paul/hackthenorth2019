@@ -34,8 +34,8 @@ module.exports = {
      "YQG": "3200 County Rd 42 #200, Windsor, ON N8V 0A1",
    }
    if (!isLocal) {
-    originAddress = airportAddressMap[origin]
-    endAddress = airportAddressMap[origin]
+    originAddress = airportAddressMap[endDestination]
+    endAddress = airportAddressMap[endDestination]
    } else {
      originAddress = origin
      endAddress = endDestination

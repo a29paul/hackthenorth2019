@@ -56,7 +56,7 @@ app.post('/optimize', async (req,res) => {
     const origin = req.body.origin;
     const endDestination = req.body.endDestination;
     const arrayOfUniversities = req.body.arrayOfUniversities;
-    const orderedArray = await GoogleService.optimizeRoute(isLocal, origin, endDestination, arrayOfUniversities)
+    const orderedArray = await GoogleService.optimizeRoute(isLocal, origin, arrayOfUniversities)
     const data = {
         orderedArray
     }
