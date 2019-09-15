@@ -7,9 +7,10 @@ const config = {
   }
 module.exports = {
     convertCurrency: function convertCurrency(perferredCurrency, amount) {
+      const promise = new Promise ((resolve) => {
         axios.get(`https://xecdapi.xe.com/v1/convert_to.json/?to=CAD&from=${perferredCurrency}&amount=${amount}`,config)
         .then(function (response) {
-          console.log(response.data.from)
+          resolve(response.data.from[0].mid)
         })
         .catch(function (error) {
          console.log() 
@@ -19,5 +20,7 @@ module.exports = {
         .finally(function () {
           // always executed
         });
+      })
+      return promise;
     }
 }

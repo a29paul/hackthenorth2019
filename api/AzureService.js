@@ -6,16 +6,19 @@ const client = new NewsSearchAPIClient(credentials);
 
 module.exports = {
   newsInfo: function newsInfo(searchTerm){
-    client.newsOperations.search(searchTerm).then((result) => {
-        const links = result.value
-        let articleArray = [];
-        for (let i = 0; i < 5; i++) {
-            const link = links[i];
-            articleArray.push([link.name, link.url])
-        }
-         console.log(articleArray)
-    }).catch((err) => {
-        throw err;
-    });
+    const promise = new Promise((resolve) => {
+        client.newsOperations.search(searchTerm).then((result) => {
+            const links = result.value
+            let articleArray = [];
+            for (let i = 0; i < 5; i++) {
+                const link = links[i];
+                articleArray.push([link.name, link.url])
+            }
+            resolve(articleArray);
+        }).catch((err) => {
+            throw err;
+        });
+    })
+    return promise;
  }
 }
