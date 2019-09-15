@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { AccentoursService } from '../accentours.service';
 
 
 import {
@@ -74,17 +74,18 @@ export class StudentFormComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private tourService: TourService
+    private tourService: TourService,
+    private accentours: AccentoursService,
   ) { }
 
   onSubmit() {
-    console.log(this.startDate.value);
-    console.log(this.endDate.value);
-    console.log(this.reqFlight.value);
+    // console.log(this.startDate.value);
+    // console.log(this.endDate.value);
+    // console.log(this.reqFlight.value);
 
-    console.log(this.waterloo.value);
-    console.log(this.brock.value);
-    console.log(this.carleton.value);
+    // console.log(this.waterloo.value);
+    // console.log(this.brock.value);
+    // console.log(this.carleton.value);
 
     console.log(this.form);
     this.tourService.tourInformation.startDate = this.startDate.value;

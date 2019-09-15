@@ -21,10 +21,15 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+<<<<<<< HEAD
+=======
+    "@google/maps": "^1.0.0",
+>>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021
     "angular-material": "^1.1.20",
     "axios": "^0.19.0",
     "azure-cognitiveservices-newssearch": "^2.0.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "ms-rest-azure": "^3.0.0",
     "querystring": "^0.2.0",

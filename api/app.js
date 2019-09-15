@@ -1,42 +1,86 @@
-// const axios = require('axios').default;
-// const querystring = require('querystring')
-// const departureAirport = '' + '-sky';
-// const closestAirport = '' + '-sky';
-// const countryOfOrigin = '';
-// const preferredCurrency = '';
+const express = require('express');
+const app = express();
+const FlightPriceService = require('./FlightPriceService');
+const CurrencyConverterService = require('./CurrencyConverterService');
+const AzureService = require('./AzureService');
+const GoogleService = require('./GoogleService');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({
+  extended: true,
+}));
+app.use(function(req, res, next) {
+    //set headers to allow cross origin request.
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+app.post('/flightPrices', async (req,res) => {
+    const originAirport = req.body.originAirport
+    const university = req.body.university
+    const dateOfDeparture = req.body.dateOfDeparture
+    const dateOfReturn = req.body.dateOfReturn
+    
+    const flightPriceCAD = await FlightPriceService.getFlightPrices(originAirport, university, dateOfDeparture, dateOfReturn)
+    const data = {
+        price: flightPriceCAD,
+    }
+    const jsonify = JSON.stringify(data)
+    res.send(jsonify)
+})
+app.post('/moneyConvert', async (req,res) => {
+    const perferredCurrency = req.body.perferredCurrency;
+    const amount = req.body.amount;
+    const convertedCurrency = await CurrencyConverterService.convertCurrency(perferredCurrency, amount)
+    const data = {
+        convertedValue: convertedCurrency,
+    }
+    const jsonify = JSON.stringify(data)
+    res.send(jsonify)
+})
 
+<<<<<<< HEAD
 const express = require('express');
 const app = express();
 
 
 
+=======
+app.post('/newsFeed', async (req,res) => {
+    const university = req.body.university;
+    const news = await AzureService.newsInfo(university)
+    const data = {
+        newsArray: news,
+    }
+    const jsonify = JSON.stringify(data)
+    res.send(jsonify)
+})
 
-// // const options = {
-// //     method: 'GET',
-// //     url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/GBP/en-us/',
-// //     qs: {query: 'Waterloo'},
-// //     headers: {
-// //       'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-// //       'x-rapidapi-key': '6173e36138msh426bdce533ea798p1cbaafjsn148e9b084d52'
-// //     }
-// //   };
+app.post('/optimize', async (req,res) => {
+    const isLocal = req.body.isLocal;
+    const origin = req.body.origin;
+    const endDestination = req.body.endDestination;
+    const arrayOfUniversities = req.body.arrayOfUniversities;
+    const orderedArray = await GoogleService.optimizeRoute(isLocal, origin, arrayOfUniversities)
+    const data = {
+        orderedArray
+    }
+    const jsonify = JSON.stringify(data)
+    res.send(jsonify)
+})
+>>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021
 
-// var options = {
-//     method: 'GET',
-//     url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/${countryOfOrigin}/CAD/en-US/${departureAirport}/${}/2019-09-01`,
-//     qs: {inboundpartialdate: '2019-12-01'},
-//     headers: {
-//       'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-//       'x-rapidapi-key': '6173e36138msh426bdce533ea798p1cbaafjsn148e9b084d52'
-//     }
-//   }
-//   request(options, function (error, response, body) {
-//     if (error) throw new Error(error);
-//       console.log(body)
-// });
 
+app.listen(3000)
+
+
+<<<<<<< HEAD
 const FlightPriceService = require('./FlightPriceService');
 const CurrencyConverterService = require('./CurrencyConverterService');
 const AzureService = require('./AzureService');
 
 
+=======
+>>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021

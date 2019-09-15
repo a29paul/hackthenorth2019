@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {HomeComponent} from './home/home.component';
+<<<<<<< HEAD
 
 
 import { MatFormField, MatError } from '@angular/material/form-field';
@@ -16,6 +17,9 @@ import {
   MatRippleModule
 } from '@angular/material';
 
+=======
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> ffbd7b7fa10f49b182dccb8d5fd11e696cdbf021
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeadingComponent } from './heading/heading.component';
@@ -44,11 +48,7 @@ import { AvailableToursComponent } from './available-tours/available-tours.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRippleModule,
-    MatSelectModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
