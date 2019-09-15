@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { UserFormComponent } from './user-form/user-form.component';
+
 import {HomeComponent} from './home/home.component';
+
 
 import { MatFormField, MatError } from '@angular/material/form-field';
 
@@ -35,7 +36,8 @@ import { AvailableToursComponent } from './available-tours/available-tours.compo
     ExploreComponent,
     StudentFormComponent,
     StudentFormRankingComponent,
-    AvailableToursComponent
+    AvailableToursComponent,
+
   ],
   imports: [
     BrowserModule,

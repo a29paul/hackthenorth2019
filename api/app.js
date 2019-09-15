@@ -5,9 +5,11 @@
 // const countryOfOrigin = '';
 // const preferredCurrency = '';
 
+const express = require('express');
+const app = express();
 
-  
-  
+
+
 
 // // const options = {
 // //     method: 'GET',
@@ -36,3 +38,5 @@
 const FlightPriceService = require('./FlightPriceService');
 const CurrencyConverterService = require('./CurrencyConverterService');
 const AzureService = require('./AzureService');
+
+

@@ -3,12 +3,20 @@
   margin-left: 55vh;
 }
 
+.container1 {
+  margin-left: 2%;
+  margin-right: none;
+}
+
 .btn btn-outline-info btn-rounded btn-block{
   width: 10%;
 }
 .buttonWidth {
   width: 10vw;
   margin: 0 auto;
+  background-color: #5352ed;
+  outline-color: #5352ed;
+
 }
 
 .custom-control-label{
@@ -30,4 +38,46 @@
   max-height: 75px;
   overflow-x: hidden;
   text-align: center;
+}
+
+.jumbotron {
+  background: #5352ed;
+  height: 18vh;
+  color: white;
+}
+
+.fas {
+  display: inline-block;
+  padding-right: 50px;
+  padding-bottom: none;
+}
+
+.fab {
+  display: inline-block;
+  padding-right: 50px;
+  padding-bottom: none;
+}
+
+.far {
+  display: inline-block;
+  padding-right: 50px;
+  padding-bottom: none;
+}
+
+.seasons {
+  display: inline-block;
+  text-align: center;
+  color: #5352ed;
+  padding: none;
+}
+
+#container2{
+  font-weight: lighter;
+  margin-left: 2vw;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.instructions{
+  font-weight: 200;
 }

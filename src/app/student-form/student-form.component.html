@@ -2,38 +2,66 @@
 <!-- Material form subscription -->
 
 <div class="card">
+  <div id='top'>
+    <div class='jumbotron'>
+      <p class='display-3'>Information Form</p>
+    </div>
+  </div>
 
-  <h5 class="card-header info-color white-text text-center py-4" style="background-color: #5352ed; ">
+  <div class='container1'>
+    <h2>Tour Information</h2>
+  </div>
+
+  <div id='container2'>
+      <h2 class='instructions'>Please pick your desired tour date by filtering through seasons or inputting a custom date!</h2>
+    </div>
+
+
+  <!-- <h5 class="card-header info-color white-text text-center py-4" style="background-color: #5352ed; ">
       <h5 style="color: white; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: 200%; ">Information Form</h5>
       <h5 style="color: white; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: 100%; ">Provide us with your travel info so that we can plan your trip.</h5>
-  </h5>
+  </h5> -->
 
   <!--Card content-->
+  <div class='seasons'>
+  <i style= 'display:inline' class="far fa-snowflake fa-6x" (click)="winterClicked()"></i>
+  <i class="fas fa-sun fa-6x" style= 'display:inline' (click)="summerClicked()"></i>
+  <i class="fab fa-canadian-maple-leaf fa-6x" style= 'display:inline' (click)="fallClicked()"></i>
+  <i class="fas fa-cloud-sun fa-6x" style= 'display:inline' (click)="springClicked()"></i>
+</div>
   <div class="card-body px-lg-5" style="margin-top: 5vh; margin-bottom: 50vh">
 
+
       <!-- Form -->
-      <form class="text-center" style="color: black;" action="#!" (submit)="onSubmit()">
+      <form class="text-center" style="color: black;" action="#!" (submit)="onSubmit()" ngNativeValidate>
 
           <div class= "student-form-travel-inputs">
             <div class="form-inline">
                 <label style="padding-right: 10px; padding-bottom: 20px;">Start date</label>
                 <input type="date" name="bday" max="3000-12-31"
-                       min="1000-01-01" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="startDate">
+                       min="1000-01-01" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="startDate" required>
                 <label style="padding-right: 10px; padding-bottom: 20px" >End date</label>
                 <input type="date" name="bday" min="1000-01-01"
-                       max="3000-12-31" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="endDate">
+                       max="3000-12-31" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="endDate" required>
             </div>
 
 
             <label for="numtours" class="mb-2 mr-sm-2" style="color: black; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: large;">Will a flight be required? </label>
 
-            <mat-form-field>
-
-                <select matNativeControl required [formControl]="reqFlight">
-                  <option value="Yes" >Yes</option>
+                <select matNativeControl required [formControl]="reqFlight" (change)="airportNeed()">
+                  <option value="" disabled>Please enter a value</option>
+                  <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
-            </mat-form-field>
+
+                <div *ngIf="airportNeeded">
+                    <form class="form-inline">
+                        <label for="origin" class="mb-2 mr-sm-2">Origin Airport Code:</label>
+                        <input type="text" class="form-control form-control mb-2 mr-sm-2" id="origin" placeholder="" name="origin" [formControl]="originAirport" >
+                        <label for="pwd2" class="mb-2 mr-sm-2">Destination Airport Code:</label>
+                        <input type="text" class="form-control form-control mb-2 mr-sm-2" id="pwd2" placeholder="" name="pswd" [formControl]="destAirport" >
+                    </form>
+                </div>
 
 
           </div>
@@ -134,10 +162,16 @@ university", "university of guelph", "university of ottawa", "university of toro
                   <input type="checkbox" class="custom-control-input" id="defaultInline14" [formControl]="york">
                   <label class="custom-control-label" for="defaultInline14">York University</label>
                 </div>
+
+                <!-- Default inline 3-->
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="defaultInline15" [formControl]="queens">
+                    <label class="custom-control-label" for="defaultInline15">Queen's University</label>
+                  </div>
           </div>
 
           <!-- Sign in button -->
-          <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect buttonWidth" type="submit"><a [routerLink]="['/available-tours']" routerLinkActive="router-link-active" >Submit</a></button>
+          <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect buttonWidth" type="submit" style="color:white">Submit</button>
       </form>
       <!-- Form -->
 
