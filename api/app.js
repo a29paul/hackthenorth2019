@@ -24,7 +24,7 @@ app.post('/flightPrices', async (req,res) => {
     const university = req.body.university
     const dateOfDeparture = req.body.dateOfDeparture
     const dateOfReturn = req.body.dateOfReturn
-    
+
     const flightPriceCAD = await FlightPriceService.getFlightPrices(originAirport, university, dateOfDeparture, dateOfReturn)
     const data = {
         price: flightPriceCAD,
