@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import {HomeComponent} from './home/home.component';
 
-import { MatFormField, MatError } from '@angular/material/form-field';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeadingComponent } from './heading/heading.component';
