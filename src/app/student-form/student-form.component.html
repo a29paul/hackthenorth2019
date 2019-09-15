@@ -26,14 +26,10 @@
 
 
             <label for="numtours" class="mb-2 mr-sm-2" style="color: black; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: large;">Will a flight be required? </label>
-
-            <mat-form-field>
-
                 <select matNativeControl required [formControl]="reqFlight">
                   <option value="Yes" >Yes</option>
                   <option value="No">No</option>
                 </select>
-            </mat-form-field>
 
 
           </div>
@@ -137,7 +133,7 @@ university", "university of guelph", "university of ottawa", "university of toro
           </div>
 
           <!-- Sign in button -->
-          <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect buttonWidth" type="submit"><a [routerLink]="['/available-tours']" routerLinkActive="router-link-active" >Submit</a></button>
+          <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect buttonWidth" type="submit"></button>
       </form>
       <!-- Form -->
 

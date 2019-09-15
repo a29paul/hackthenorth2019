@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { AccentoursService } from '../accentours.service';
 
-import {
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatRippleModule
-} from '@angular/material';
 
 
 
@@ -41,18 +35,23 @@ export class StudentFormComponent implements OnInit {
   value: string;
   viewValue: string;
 
-  constructor() { }
+  constructor(
+    private accentours: AccentoursService,
+  ) { }
   onSubmit() {
-    console.log(this.startDate.value);
-    console.log(this.endDate.value);
-    console.log(this.reqFlight.value);
+    // console.log(this.startDate.value);
+    // console.log(this.endDate.value);
+    // console.log(this.reqFlight.value);
 
-    console.log(this.waterloo.value);
-    console.log(this.brock.value);
-    console.log(this.carleton.value);
+    // console.log(this.waterloo.value);
+    // console.log(this.brock.value);
+    // console.log(this.carleton.value);
 
   }
   ngOnInit() {
+    this.accentours.getNewsData('University of Guelph').subscribe((res)=> {
+      console.log(res)
+      })
   }
 
 

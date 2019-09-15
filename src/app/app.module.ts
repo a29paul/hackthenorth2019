@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //import { UserFormComponent } from './user-form/user-form.component';
 import {HomeComponent} from './home/home.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeadingComponent } from './heading/heading.component';
@@ -32,11 +32,7 @@ import { AvailableToursComponent } from './available-tours/available-tours.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRippleModule,
-    MatSelectModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

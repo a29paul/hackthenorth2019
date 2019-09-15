@@ -3,6 +3,7 @@ const app = express();
 const FlightPriceService = require('./FlightPriceService');
 const CurrencyConverterService = require('./CurrencyConverterService');
 const AzureService = require('./AzureService');
+const GoogleService = require('./GoogleService');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 app.use( bodyParser.json() );
@@ -49,4 +50,21 @@ app.post('/newsFeed', async (req,res) => {
     const jsonify = JSON.stringify(data)
     res.send(jsonify)
 })
+
+app.post('/optimize', async (req,res) => {
+    const isLocal = req.body.isLocal;
+    const origin = req.body.origin;
+    const endDestination = req.body.endDestination;
+    const arrayOfUniversities = req.body.arrayOfUniversities;
+    const orderedArray = await GoogleService.optimizeRoute(isLocal, origin, endDestination, arrayOfUniversities)
+    const data = {
+        orderedArray
+    }
+    const jsonify = JSON.stringify(data)
+    res.send(jsonify)
+})
+
+
 app.listen(3000)
+
+

@@ -1,5 +1,5 @@
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const credentials = new CognitiveServicesCredentials('fa6bd1bf70114ea480af6726fce37972');
+const credentials = new CognitiveServicesCredentials('1aad692bbee14357afd6d13321fd76a7');
 
 const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
 const client = new NewsSearchAPIClient(credentials);
