@@ -4,7 +4,7 @@ const googleMapsClient = require('@google/maps').createClient({
   });
 
 module.exports = {
-  optimizeRoute: function optimizeRoute(isLocal ,origin, endDestination, arrayOfUniversities) {
+  optimizeRoute: function optimizeRoute(isLocal, homePoint, arrayOfUniversities) {
     let addressArray = []
     let orderedUniversityList = []
     let endAddress = ''
@@ -34,11 +34,11 @@ module.exports = {
      "YQG": "3200 County Rd 42 #200, Windsor, ON N8V 0A1",
    }
    if (!isLocal) {
-    originAddress = airportAddressMap[endDestination]
-    endAddress = airportAddressMap[endDestination]
+    originAddress = airportAddressMap[homePoint]
+    endAddress = airportAddressMap[homePoint]
    } else {
-     originAddress = origin
-     endAddress = endDestination
+     originAddress = homePoint
+     endAddress = homePoint
    }
    for (let i = 0; i < arrayOfUniversities.length; i++) {
      const nameOfUniversity = arrayOfUniversities[i];

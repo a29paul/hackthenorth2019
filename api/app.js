@@ -4,6 +4,8 @@ const FlightPriceService = require('./FlightPriceService');
 const CurrencyConverterService = require('./CurrencyConverterService');
 const AzureService = require('./AzureService');
 const GoogleService = require('./GoogleService');
+const AccentoursService = require('./AccentoursService')
+
 const cors = require('cors');
 const bodyParser = require('body-parser');
 app.use( bodyParser.json() );
@@ -54,8 +56,7 @@ app.post('/newsFeed', async (req,res) => {
 app.post('/optimize', async (req,res) => {
     const isLocal = req.body.isLocal;
     const origin = req.body.origin;
-    const endDestination = req.body.endDestination;
-    const arrayOfUniversities = req.body.arrayOfUniversities;
+    const arrayOfUniversities = req.body.universities;
     const orderedArray = await GoogleService.optimizeRoute(isLocal, origin, arrayOfUniversities)
     const data = {
         orderedArray
@@ -63,6 +64,28 @@ app.post('/optimize', async (req,res) => {
     const jsonify = JSON.stringify(data)
     res.send(jsonify)
 })
+app.post('/create_user', async (req,res) => {
+    const username = req.body.username;
+    const response = await AccentoursService.createUser(username)
+    const jsonify = JSON.stringify(response)
+    res.send(jsonify)
+})
+app.post('/book_tour', async (req,res) => {
+    const username = req.body.username;
+    const tour_id = req.body.tour_id;
+    const spots_required = req.body.spots_required;
+    const response = await AccentoursService.book_tour(username, tour_id, spots_required)
+    const jsonify = JSON.stringify(response)
+    res.send(jsonify)
+})
+app.get('/get_tours', async (req,res) => {
+    const university = req.body.university;
+    const response = await AccentoursService.get_tours(university)
+    const jsonify = JSON.stringify(response)
+    res.send(jsonify)
+})
+
+
 
 
 app.listen(3000)

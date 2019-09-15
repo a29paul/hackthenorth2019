@@ -34,7 +34,7 @@ import { AvailableToursComponent } from './available-tours/available-tours.compo
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

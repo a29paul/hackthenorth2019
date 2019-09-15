@@ -49,9 +49,10 @@ export class StudentFormComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.accentours.optimizeUniversityOrder(false, "CHN", "YYZ", ['university of toronto','brock university', 'mcmaster university', 'wilfrid laurier university', 'university of waterloo', 'university of windsor'])
-    .subscribe((res) => {
-      console.log(res)
+
+    this.accentours.getTours('university of waterloo')
+      .subscribe((res) => {
+      console.log(res);
     })
   }
 
