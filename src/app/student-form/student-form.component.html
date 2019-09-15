@@ -1,0 +1,180 @@
+
+<!-- Material form subscription -->
+
+<div class="card">
+  <div id='top'>
+    <div class='jumbotron'>
+      <p class='display-3'>Information Form</p>
+    </div>
+  </div>
+
+  <div class='container1'>
+    <h2>Tour Information</h2>
+  </div>
+
+  <div id='container2'>
+      <h2 class='instructions'>Please pick your desired tour date by filtering through seasons or inputting a custom date!</h2>
+    </div>
+
+
+  <!-- <h5 class="card-header info-color white-text text-center py-4" style="background-color: #5352ed; ">
+      <h5 style="color: white; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: 200%; ">Information Form</h5>
+      <h5 style="color: white; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: 100%; ">Provide us with your travel info so that we can plan your trip.</h5>
+  </h5> -->
+
+  <!--Card content-->
+  <div class='seasons'>
+  <i style= 'display:inline' class="far fa-snowflake fa-6x" (click)="winterClicked()"></i>
+  <i class="fas fa-sun fa-6x" style= 'display:inline' (click)="summerClicked()"></i>
+  <i class="fab fa-canadian-maple-leaf fa-6x" style= 'display:inline' (click)="fallClicked()"></i>
+  <i class="fas fa-cloud-sun fa-6x" style= 'display:inline' (click)="springClicked()"></i>
+</div>
+  <div class="card-body px-lg-5" style="margin-top: 5vh; margin-bottom: 50vh">
+
+
+      <!-- Form -->
+      <form class="text-center" style="color: black;" action="#!" (submit)="onSubmit()" ngNativeValidate>
+
+          <div class= "student-form-travel-inputs">
+            <div class="form-inline">
+                <label style="padding-right: 10px; padding-bottom: 20px;">Start date</label>
+                <input type="date" name="bday" max="3000-12-31"
+                       min="1000-01-01" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="startDate" required>
+                <label style="padding-right: 10px; padding-bottom: 20px" >End date</label>
+                <input type="date" name="bday" min="1000-01-01"
+                       max="3000-12-31" class="form-control" style="margin-right: 20px; margin-bottom: 20px;" [formControl]="endDate" required>
+            </div>
+
+
+            <label for="numtours" class="mb-2 mr-sm-2" style="color: black; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: large;">Will a flight be required? </label>
+
+                <select matNativeControl required [formControl]="reqFlight" (change)="airportNeed()">
+                  <option value="" disabled>Please enter a value</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+
+                <div *ngIf="airportNeeded">
+                    <form class="form-inline">
+                        <label for="origin" class="mb-2 mr-sm-2">Origin Airport Code:</label>
+                        <input type="text" class="form-control form-control mb-2 mr-sm-2" id="origin" placeholder="" name="origin" [formControl]="originAirport" >
+                        <label for="pwd2" class="mb-2 mr-sm-2">Destination Airport Code:</label>
+                        <input type="text" class="form-control form-control mb-2 mr-sm-2" id="pwd2" placeholder="" name="pswd" [formControl]="destAirport" >
+                    </form>
+                </div>
+
+
+          </div>
+
+          <!--
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">University of Waterloo</label>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">University of Toronto</label>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          -->
+          <!-- Default unchecked
+          ["brock university", "carleton university", "mcmaster university", "ocad university", "queen's university", "ryerson
+university", "university of guelph", "university of ottawa", "university of toronto", "university of waterloo",
+"university of windsor", "western university", "wilfrid laurier university", "york university"]
+          -->
+          <div style="margin-top: 5vh;">
+            <h1 style="color: black; font-family: 'Fira Sans', sans-serif; font-weight: 300; font-size: x-large;">Select the universties you wish to tour!</h1>
+            <!-- Default inline 1-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline1" [formControl]="waterloo">
+              <label class="custom-control-label" for="defaultInline1">University of Waterloo</label>
+            </div>
+
+            <!-- Default inline 2-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline2" [formControl]="brock">
+              <label class="custom-control-label" for="defaultInline2">Brock University</label>
+            </div>
+
+            <!-- Default inline 3-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline3" [formControl]="carleton">
+              <label class="custom-control-label" for="defaultInline3">Carleton University</label>
+            </div>
+
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline4" [formControl]="mcmaster">
+              <label class="custom-control-label" for="defaultInline4">McMaster University</label>
+            </div>
+
+            <!-- Default inline 2-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline5" [formControl]="ocad">
+              <label class="custom-control-label" for="defaultInline5">OCAD University</label>
+            </div>
+
+            <!-- Default inline 3-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline6" [formControl]="ryerson">
+              <label class="custom-control-label" for="defaultInline6">Ryerson University</label>
+            </div>
+          </div>
+          <div>
+            <!-- Default inline 1-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline7" [formControl]="guelph">
+              <label class="custom-control-label" for="defaultInline7">University of Guelph</label>
+            </div>
+
+            <!-- Default inline 2-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline8" [formControl]="ottawa">
+              <label class="custom-control-label" for="defaultInline8">University of Ottawa</label>
+            </div>
+
+            <!-- Default inline 3-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline9" [formControl]="uoft">
+              <label class="custom-control-label" for="defaultInline9">University of Toronto</label>
+            </div>
+
+            <!-- Default inline 2-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline11" [formControl]="windsor">
+              <label class="custom-control-label" for="defaultInline11">University of Windsor</label>
+            </div>
+
+            <!-- Default inline 3-->
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input" id="defaultInline12" [formControl]="western">
+              <label class="custom-control-label" for="defaultInline12">Western University</label>
+            </div>
+          </div>
+          <div>
+              <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" id="defaultInline13" [formControl]="wlu">
+                  <label class="custom-control-label" for="defaultInline13">Wilfrid Laurier University</label>
+                </div>
+
+                <!-- Default inline 3-->
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" id="defaultInline14" [formControl]="york">
+                  <label class="custom-control-label" for="defaultInline14">York University</label>
+                </div>
+
+                <!-- Default inline 3-->
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="defaultInline15" [formControl]="queens">
+                    <label class="custom-control-label" for="defaultInline15">Queen's University</label>
+                  </div>
+          </div>
+
+          <!-- Sign in button -->
+          <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect buttonWidth" type="submit" style="color:white">Submit</button>
+      </form>
+      <!-- Form -->
+
+  </div>
+
+</div>

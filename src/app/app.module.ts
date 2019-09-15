@@ -1,24 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfoFormComponent } from './info-form/info-form.component';
+import {HomeComponent} from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeadingComponent } from './heading/heading.component';
+import { ExploreComponent } from './explore/explore.component';
+import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentFormRankingComponent } from './student-form-ranking/student-form-ranking.component';
+import { AvailableToursComponent } from './available-tours/available-tours.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoFormComponent
+    InfoFormComponent,
+    //UserFormComponent,
+    NavbarComponent,
+    HeadingComponent,
+    HomeComponent,
+    ExploreComponent,
+    StudentFormComponent,
+    StudentFormRankingComponent,
+    AvailableToursComponent,
+
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
